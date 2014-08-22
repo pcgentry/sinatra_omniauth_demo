@@ -3,16 +3,13 @@ Sample code to use Omniauth in conjunction with Sinatra.
 
 ### Derived from
 
-Watch [Railcast](http://railscasts.com/episodes/304-omniauth-identity?view=asciicast) to get an idea of how Omniauth can be used in Ruby.
+Watch the [Railscast](http://railscasts.com/episodes/304-omniauth-identity?view=asciicast) to get an idea of how Omniauth can be used in Ruby.
 
-Take  a look at the code to understand the rest of it.
+#### Setup
 
-### Few things added
+There is an example configuration file in /config/application.yml.example. You will need to copy it to /config/application.yml and customize it to your own needs. 
 
-* Use of Twitter Bootstrap(CDN reference)
-* Customized log in and registration page
-* Use of Identity Strategy
-* Simple role based sinatra routes.
+You will also need to setup the database (see rake tasks below) and do a bundle install before the code will function.
 
 #### Rake Tasks
 
@@ -31,6 +28,6 @@ To be able to do some dirty checks
     u = User.all
 
 #### There are a few things that are vendor specific:
-    
-    Google - you have to enable the Google + API and the Contacts API from console.developers.google.com
-    On most providers, you need to enable the callback urls and such, even for local testing(typically something like: http://localhost:9393/auth/google_oauth2/callback)
+
+* Google - you have to enable the Google + API and the Contacts API from console.developers.google.com
+* On most providers, you need to enable the callback urls and such, even for local testing(typically something like: http://localhost:9393/auth/google_oauth2/callback)
