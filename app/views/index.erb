@@ -1,0 +1,34 @@
+
+
+<h3>Welcome to the publicly available home page.</h3>
+
+
+<% if signed_in? %>
+  <p>You are logged in as <%= @current_user['name'] %></p>
+  <% else %>
+  <p>By the way, you are *not* logged in right now.</p>
+    <%#= erb :login %>
+<% end %>
+
+<br /><br /><br />
+<h1>BUGS:</h1>
+<ul>
+
+<li>Add Google</li>
+
+<li>Edit account details.</li>
+
+<li>Need to prompt for email after email-less twitter signup (or remove twitter).</li>
+
+<li>Error when trying to re-link an already-linked facebook account. The controller of the account should always be able to switch the link. Only seems to affect facebook.</li>
+
+<li>if an authentication somehow doesn't have a matching user after creation, it needs to be removed or not created.</li>
+
+<li>Reset password ability.</li>
+
+<li>Verify email ability.</li>
+
+<li>Account deletion.</li>
+
+<li>There is some code duplication in /auth/:name/callback .. need to work out how to fix that.</li>
+</ul>

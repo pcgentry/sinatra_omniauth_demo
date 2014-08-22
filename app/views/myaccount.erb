@@ -1,0 +1,30 @@
+<fieldset>
+  <h3>Your account details:</h3>
+  <ul>
+    <li>id: <%= @current_user['id'] %>
+    <li>name: <%= @current_user['name'] %>
+    <li>email: <%= @current_user['email'] %>
+    <li>password: 
+    </li>
+  </ul>
+</fieldset>
+
+<fieldset>
+  <h3>You currently have these apps linked to your account.</h3>
+  <% @authentications.each do |auth| %>
+    <ul>
+      <% if auth['provider'] != "identity" %>
+        <li><a href="/auth/<%= auth['provider']  %>"><%= auth['provider']  %>.com</a></li>
+      <% end %>
+    </ul>
+  <% end %>
+</fieldset>
+<br /><br />
+<fieldset>
+  <legend>Here is a list of all possible apps:</legend>
+  <ul>
+    <li><a href="/auth/facebook">facebook.com</a></li>
+    <li><a href="/auth/github">github.com</a></li>
+    <li><a href="/auth/twitter">twitter.com</a></li>
+  </ul>
+</fieldset>

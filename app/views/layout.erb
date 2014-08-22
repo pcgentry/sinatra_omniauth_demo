@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Sinatra OmniAuth App</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">SinOmniAuth</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+          <% if signed_in? %>
+              <li><a href="/protected">Protected Page</a></li>              
+              <li><a href="/myaccount">My Account</a></li>
+              <li><a href="/about">About This</a></li>
+              <% if @current_user['role'] == 'admin' %>
+              <li><a href="/manage">Admin</a></li>
+              <% end %>
+          <% else %>
+              <li><a href="/about">About This</a></li>
+          <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+            
+              <% if signed_in? %>
+                <li><a href="/myaccount">Welcome, <%= @current_user['name'] %></a></li>
+                 <li><button type="button" class="btn btn-default navbar-btn"><a href ="/logout">Log out</a></button></li>
+              <% else %>
+                 <li><button type="button" class="btn btn-default navbar-btn"><a href ="/login">Log in</a></button></li>
+              <% end %>
+            
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+
+    <% if flash[:success] %>
+    <div class="panel panel-default panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Success!</h3>
+      </div>
+      <div class="panel-body">
+        <%= flash[:success] %>
+      </div>
+    </div>
+    <% end %>
+
+    <% if flash[:notice] %>
+    <div class="panel panel-default panel-warning">
+      <div class="panel-heading">
+        <h3 class="panel-title">Notice:</h3>
+      </div>
+      <div class="panel-body">
+        <%= flash[:notice] %>
+      </div>
+    </div>
+    <% end %>
+
+    <% if flash[:error] %>
+    <div class="panel panel-default panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title">Error:</h3>
+      </div>
+      <div class="panel-body">
+        <%= flash[:error] %>
+      </div>
+    </div>
+    <% end %>
+
+    <%= yield %>
+
+<br /><br /><br /><br /><br />
+    </div>
+
+
+
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div class="container">
+
+<p class="navbar-text navbar-right">
+
+Forked from code by <a href="http://chandankumar.com/">Chandan Kumar</a> <span class="glyphicon glyphicon-heart"></span>
+
+ | 
+
+<a href="https://github.com/pcgentry/sinatra_omniauth_demo">Checkout on Github <span class="glyphicon glyphicon-arrow-right"></span></a>
+
+</p>
+</div>
+</nav>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>

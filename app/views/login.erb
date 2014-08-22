@@ -1,0 +1,34 @@
+
+
+
+<form action="/auth/identity/callback" method="POST"  role="form">
+  <legend>Login</legend>
+  <% unless @error.nil? %>
+    <div class="alert">
+      <%= @error %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <label for="<%= :auth_key %>">
+      Email
+    </label>
+    <input name="<%= :auth_key %>" id="<%= :auth_key %>" type="email" class="form-control" placeholder="Enter email">
+  </div>
+
+  <div class="form-group">
+    <label for="<%= :password %>">
+      Password
+    </label>
+      <input name="<%= :password %>" id="<%= :password %>"  type="<%= :password %>" class="form-control" placeholder="Password">
+  </div>
+
+  <input  class="btn btn-default" type="<%= :submit %>" value="Login">
+
+</form>
+
+
+<br /><br /><br />
+
+
+<%= erb :alternate_login %>

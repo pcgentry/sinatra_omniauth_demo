@@ -1,0 +1,15 @@
+session_secret: 'fc683cd9ed1990ca2ea10b84e5e6fba048c24929'
+database_path: 'sqlite:///db/foo.db'
+providers:
+  -
+    name: 'twitter'
+    id: 'BmKtqEX6sQPK3i7WqBkYiH5Df'
+    secret: 'oy1WI8kUQ1hKOLLLcqTr4JExhIn9howwSeODNRpil5XXLWwoV8'
+  -
+    name: 'github'
+    id: '8c3c4f0fdf312c81be5b'
+    secret: '2c456360249305e1362f68613fcd1770dd4a1535'
+  -
+    name: 'facebook'
+    id: '736768533019749'
+    secret: '3779ebd7ee0a841f79d667cef36fa39c'

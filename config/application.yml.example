@@ -1,0 +1,15 @@
+session_secret: 'some generated random thing'
+database_path: 'sqlite:///db/foo.db'
+providers:
+  -
+    name: 'twitter'
+    id: 'replace_with_my_id'
+    secret: 'replace_with_my_secret'
+  -
+    name: 'github'
+    id: 'replace_with_my_id'
+    secret: 'replace_with_my_secret'
+  -
+    name: 'facebook'
+    id: 'replace_with_my_id'
+    secret: 'replace_with_my_secret'
