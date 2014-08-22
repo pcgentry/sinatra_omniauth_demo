@@ -3,6 +3,7 @@ require 'omniauth'
 require 'omniauth-facebook'
 require 'omniauth-github'
 require 'omniauth-twitter'
+require 'omniauth-google-oauth2'
 require 'pp'
 require 'sinatra'
 require 'sinatra/activerecord'
@@ -31,7 +32,7 @@ class AdminApp < Sinatra::Base
     }
 
     AppConfig.providers.each do |provider|
-      provider provider.name, provider.id, provider.secret
+      provider provider.strategy_name, provider.id, provider.secret
     end
 
     OmniAuth.config.on_failure = Proc.new { |env|

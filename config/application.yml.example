@@ -13,3 +13,9 @@ providers:
     name: 'facebook'
     id: 'replace_with_my_id'
     secret: 'replace_with_my_secret'
+  -
+    strategy_name: 'google_oauth2'
+    id: 'replace_with_my_id'
+    secret: 'replace_with_my_secret'
+
+    

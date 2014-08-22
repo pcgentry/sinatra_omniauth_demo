@@ -17,19 +17,17 @@ class User < OmniAuth::Identity::Models::ActiveRecord
     if auth.provider == "identity"
       create(name: auth['info']['name'])
     elsif auth.provider == "facebook"
-      # temp_email = auth['uid']+"@idonotexist.com"
-      puts "creating fb account"
       create(name: auth['info']['nickname'], email: auth['info']['email'], password: random_pass )
     elsif auth.provider == "github"
       create(name: auth['info']['nickname'], email: auth['info']['email'], password: random_pass )
-     elsif auth.provider == "twitter"
+    elsif auth.provider == "twitter"
       #Unfortunate necessity.. need to add some code to prompt for email when they sign in.
       temp_email = auth['uid']+"@idonotexist.com"
       create(name: auth['info']['nickname'], email: temp_email, password: random_pass )
+    else
+      create(name: auth['info']['nickname'], email: auth['info']['email'], password: random_pass )
     end
   end
-
-
 
 
 
